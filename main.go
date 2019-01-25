@@ -32,14 +32,14 @@ func main() {
 			log.Fatal(err)
 		}
 
-		req.Header.Set("Connection", "keep-alive")
-		req.Header.Set("Pragma", "no-cache")
-		req.Header.Set("Cache-Control", "no-cache")
-		req.Header.Set("Upgrade-Insecure-Requests", "1")
-		req.Header.Set("User-Agent", "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36")
-		req.Header.Set("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8")
-		req.Header.Set("Accept-Encoding", "gzip, deflate, br")
-		req.Header.Set("Accept-Language", "zh-CN,zh;q=0.9")
+		//req.Header.Set("Connection", "keep-alive")
+		//req.Header.Set("Pragma", "no-cache")
+		//req.Header.Set("Cache-Control", "no-cache")
+		//req.Header.Set("Upgrade-Insecure-Requests", "1")
+		//req.Header.Set("User-Agent", "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36")
+		//req.Header.Set("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8")
+		//req.Header.Set("Accept-Encoding", "gzip, deflate, br")
+		//req.Header.Set("Accept-Language", "zh-CN,zh;q=0.9")
 
 		resp, err := client.Do(req)
 		if err != nil {
@@ -60,9 +60,11 @@ func main() {
 		//	fmt.Println(v)
 		//}
 
-		c.JSON(200, gin.H{
-			"JSON_results": cn_json,
-		})
+		//c.JSON(200, gin.H{
+		//	"JSON_results": cn_json,
+		//})
+
+		c.JSONP(http.StatusOK, cn_json)
 
 	})
 
